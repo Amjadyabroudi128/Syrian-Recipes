@@ -91,7 +91,7 @@ class MyCustomForm extends StatelessWidget {
                         "how it is done": how,
                         "ingredients": ingredients,
                         "name": name,
-                        "time to prepare": int.parse(time)
+                        "time to prepare": double.parse(time).toString()
                       });
                     },
                     child: const Text("submit"),
