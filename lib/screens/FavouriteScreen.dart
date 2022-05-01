@@ -46,6 +46,17 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                          data['name'],
                         style: const TextStyle(),
                       ),
+                      SizedBox(width: 90.0,),
+                      GestureDetector(
+                        child: CircleAvatar(
+                          child: Icon(Icons.favorite),
+                        ),
+                        onTap: (){
+                          FirebaseFirestore.instance.collection('users-favourite-items')
+                              .doc(FirebaseAuth.instance.currentUser!.email).collection('items').doc(data.id).delete();
+                        },
+                      ),
+
                     ],
                     ),
                   );
