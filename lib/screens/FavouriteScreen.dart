@@ -49,14 +49,18 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                       SizedBox(width: 90.0,),
                       GestureDetector(
                         child: CircleAvatar(
-                          child: Icon(Icons.favorite),
+                          backgroundColor: Colors.transparent,
+                          child: Icon(Icons.favorite,
+                            color: Colors.red,
+                            size: 35.0,
+                          ),
                         ),
                         onTap: (){
                           FirebaseFirestore.instance.collection('users-favourite-items')
                               .doc(FirebaseAuth.instance.currentUser!.email).collection('items').doc(data.id).delete();
                         },
                       ),
-
+                      //once you press on the heart button the recipe will be removed
                     ],
                     ),
                   );
@@ -70,3 +74,4 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
     );
   }
 }
+
